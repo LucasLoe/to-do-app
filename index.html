@@ -5,32 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="style.css">
+
   <title>Frontend Mentor | Todo app</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  
+  <img src="/images/bg-desktop-light.jpg">
+  <div id="bottom-page">
+    <main>
 
-  Todo
+      <div id="header">
+      <h1>TODO</h1>
+       <a onclick="toggleMode()"><img src="/images/icon-sun.svg"></a>
+      </div>
+      
+      <div id="new-input">
+        <input type="checkbox" class="checkbox-style" disabled>
+        <textarea id="new-input-textarea" maxlength="45" placeholder="new item..."></textarea>
+        <button id="submit-new-entry-button" type="submit" onclick="addListItem()">⬇</button>
+      </div>
 
-  <!-- Add dynamic number --> items left
+      <fieldset id="list-container">
 
-  All
-  Active 
-  Completed
+      </fieldset>
 
-  Clear Completed
+      <div id="list-footer">
+        <p><a onclick=""><span id="counter">0</span><span id="counter-suffix"> items left</span></a></p>
+        <div id="switch-view">
+          <p><a id="select-all" onclick="filterView(event)">All</a></p>
+          <p><a id="select-active" onclick="filterView(event)">Active</a></p>
+          <p><a id="select-completed" onclick="filterView(event)">Completed</a></p>
+        </div>
+        <p id="clear"><a onclick="clearCompletedQuests()">Clear completed</a></p>
+      </div>
 
-  Drag and drop to reorder list
+      <div id="switch-view-mobile">
+        <p><a id="select-all" onclick="filterView(event)">All</a></p>
+        <p><a id="select-active" onclick="filterView(event)">Active</a></p>
+        <p><a id="select-completed" onclick="filterView(event)">Completed</a></p>
+      </div>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+      <p id="drag-drop-hint">Drag and drop to reorder list</p>
+
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. <br>
+        Coded by <a href="#">Your Name Here</a>.
+      </div>
+
+    </main>
+
+
+
+    </div>
+
+  <script src="app.js" defer></script>
 </body>
 </html>
