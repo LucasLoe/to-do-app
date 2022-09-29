@@ -86,10 +86,9 @@ function countActiveQuests(){
 }
 
 function checkboxIsChecked(event) {
+    
     countActiveQuests()
-
     let labelSelector = event.target.nextSibling;
-    console.log(labelSelector)
     
     if (event.target.checked == true){
         event.target.parentNode.classList.add('quest-completed')
@@ -133,6 +132,11 @@ function createNewListItem(str) {
     let divTag = document.createElement('div');
     divTag.classList.add('input-field')
     divTag.classList.add('quest-active')
+    divTag.setAttribute('draggable', true)
+    divTag.addEventListener('dragstart', dragStart)
+    divTag.addEventListener('drop', dropped)
+    divTag.addEventListener('dragenter', cancelDefault)
+    divTag.addEventListener('dragover', cancelDefault)
 
     let inputTag = document.createElement('input');
         inputTag.setAttribute('type', 'checkbox')
@@ -149,3 +153,34 @@ function createNewListItem(str) {
     let containerNode = document.getElementById('list-container')
     containerNode.appendChild(divTag);
 }
+
+
+function dragStart (e) {
+    var index = $(e.target).index()
+    e.dataTransfer.setData('text/plain', index)
+  }
+  
+  function dropped (e) {
+    cancelDefault(e)
+    
+    // get new and old index
+    let oldIndex = e.dataTransfer.getData('text/plain')
+    let target = $(e.target)
+    let newIndex = target.index()
+    
+    // remove dropped items at old place
+    let dropped = $(this).parent().children().eq(oldIndex).remove()
+  
+    // insert the dropped items at new place
+    if (newIndex < oldIndex) {
+      target.before(dropped)
+    } else {
+      target.after(dropped)
+    }
+  }
+  
+  function cancelDefault (e) {
+    e.preventDefault()
+    e.stopPropagation()
+    return false
+  }
