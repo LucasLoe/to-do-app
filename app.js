@@ -75,7 +75,7 @@ function addListItem(){
     else if (textVal){
         createNewListItem(textVal)
         textAreaTag.value = "";
-        textAreaTag.setAttribute('placeholder', 'new item...')
+        textAreaTag.setAttribute('placeholder', 'Create a new todo..')
         listCounter += 1;
         countActiveQuests()
     }
