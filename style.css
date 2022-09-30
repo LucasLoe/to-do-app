@@ -87,7 +87,6 @@ main {
     margin-bottom: 4px;
     background-color: var(--container-color);
     color: var(--dark-2);
-    padding-right: 2ch;
 
     display: flex;
     text-align: left;
@@ -101,9 +100,9 @@ textarea {
     box-shadow: none;
     resize: none;
 
-    width: calc(100% - 4em - 50px);
+    width: calc(100% - 6em - 52px);
     height: 1.4em;
-    box-sizing: border-box;
+    box-sizing:border-box;
     margin: auto 0;
 
     border-radius: 3px;
@@ -121,7 +120,6 @@ textarea::placeholder {
     height: var(--boxheight);
     box-sizing: border-box;
     margin-bottom: 25px;
-    padding-right: 30px;
 
     border-radius: 3px;
     border: 1px solid var(--light-1);
@@ -153,7 +151,7 @@ textarea::placeholder {
     vertical-align: baseline;
     width: 50px;
     height: calc(var(--boxheight) - 20px);
-    margin: auto;
+    margin: auto 1em;
     color: var(--medium);
 }
 
@@ -174,11 +172,35 @@ textarea::placeholder {
     border: 1px solid var(--medium);
     border-radius: 50%;
     background-color: transparent;
-    margin: auto 2em;
+    margin: auto 1em;
 }
 
 .label-style {
     margin: auto 0;
+    width: calc(100% - 6em - 1ch);
+}
+
+.trash-button {
+    align-items: center;
+    background-color: var(--container-color);
+    border: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: 1ch;
+    height: 1em;
+    margin: auto 1em;
+    color: var(--medium);
 }
 
 .checkbox-style:checked {

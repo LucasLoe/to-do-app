@@ -17,6 +17,17 @@ var light_grayish_blue_hover = "hsl(236, 33%, 92%)";
 var dark_grayish_blue = "hsl(234, 11%, 52%)";
 var very_dark_grayish_blue = "hsl(237, 14%, 26%)";
 
+
+/* Listen to Enter-Key */
+
+var inpField = document.getElementById('new-input-textarea');
+inpField.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+        e.preventDefault;
+        document.getElementById('submit-new-entry-button').click();
+    }
+})
+
 function toggleMode(){
 
     if (mode == "lightMode") {
@@ -128,15 +139,16 @@ function clearCompletedQuests(){
     document.querySelectorAll('.quest-completed').forEach(e => e.remove())
 }
 
+function trashItem(e){
+    e.target.parentNode.remove();
+    countActiveQuests();
+}
+
 function createNewListItem(str) {
     let divTag = document.createElement('div');
     divTag.classList.add('input-field')
     divTag.classList.add('quest-active')
     divTag.setAttribute('draggable', true)
-    divTag.addEventListener('dragstart', dragStart)
-    divTag.addEventListener('drop', dropped)
-    divTag.addEventListener('dragenter', cancelDefault)
-    divTag.addEventListener('dragover', cancelDefault)
 
     let inputTag = document.createElement('input');
         inputTag.setAttribute('type', 'checkbox')
@@ -147,40 +159,16 @@ function createNewListItem(str) {
         labelTag.classList.add('label-style');
         labelTag.innerText = str;
 
+    let buttonTag = document.createElement('button')
+        buttonTag.classList.add('trash-button');
+        buttonTag.setAttribute('onclick', 'trashItem(event)')
+        buttonTag.innerText = '🗑️'
+
     divTag.appendChild(inputTag);
     divTag.appendChild(labelTag);
+    divTag.appendChild(buttonTag);
 
     let containerNode = document.getElementById('list-container')
     containerNode.appendChild(divTag);
 }
 
-
-function dragStart (e) {
-    var index = $(e.target).index()
-    e.dataTransfer.setData('text/plain', index)
-  }
-  
-  function dropped (e) {
-    cancelDefault(e)
-    
-    // get new and old index
-    let oldIndex = e.dataTransfer.getData('text/plain')
-    let target = $(e.target)
-    let newIndex = target.index()
-    
-    // remove dropped items at old place
-    let dropped = $(this).parent().children().eq(oldIndex).remove()
-  
-    // insert the dropped items at new place
-    if (newIndex < oldIndex) {
-      target.before(dropped)
-    } else {
-      target.after(dropped)
-    }
-  }
-  
-  function cancelDefault (e) {
-    e.preventDefault()
-    e.stopPropagation()
-    return false
-  }
