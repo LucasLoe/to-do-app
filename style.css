@@ -179,7 +179,8 @@ textarea::placeholder {
 .label-style {
     margin: auto 0;
     width: calc(100% - 7em - 20px);
-    border: 1px solid red;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .trash-button {
@@ -200,7 +201,7 @@ textarea::placeholder {
     touch-action: manipulation;
     vertical-align: baseline;
     width: 1ch;
-    height: 1em;
+    height: 80%;
     margin: auto 1em;
     color: var(--medium);
 }

@@ -30,6 +30,8 @@ inpField.addEventListener('keydown', e => {
 
 function toggleMode(){
 
+    let imgTag = document.getElementById('mode-image');
+
     if (mode == "lightMode") {
         mode = "darkMode";
 
@@ -40,7 +42,7 @@ function toggleMode(){
         rootVar.style.setProperty('--dark-1', dark_grayish_blue)
         rootVar.style.setProperty('--dark-2', light_grayish_blue)
         rootVar.style.setProperty('--container-color', very_dark_desaturated_blue)
-
+        imgTag.src = '/images/icon-sun.svg';
 
     }
 
@@ -54,7 +56,7 @@ function toggleMode(){
         rootVar.style.setProperty('--dark-1', dark_grayish_blue)
         rootVar.style.setProperty('--dark-2', very_dark_grayish_blue)
         rootVar.style.setProperty('--container-color', "white")
-
+        imgTag.src = '/images/icon-moon.svg';
     }
 }
 
