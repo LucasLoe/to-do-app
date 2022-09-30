@@ -1,0 +1,2 @@
+var el = document.getElementById('list-container');
+var sortable = Sortable.create(el);
