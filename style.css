@@ -8,7 +8,7 @@
     --dark-2: hsl(235, 19%, 35%);
     --container-color: white;
     --fs: 18px;
-    --boxheight: 60px;
+    --boxheight: minmax(60px, auto)
 
     --background: 
 }
@@ -278,7 +278,7 @@ textarea::placeholder {
     }
 
     main {
-        max-width: unset;
+        max-width: calc(100% - 40px);
         margin: auto 20px;
         width: calc(100% - 40px);
     }
