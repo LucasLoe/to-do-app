@@ -8,7 +8,7 @@
     --dark-2: hsl(235, 19%, 35%);
     --container-color: white;
     --fs: 18px;
-    --boxheight: minmax(60px, auto)
+    --boxheight: 60px;
 
     --background: 
 }
@@ -80,6 +80,7 @@ main {
 
 .input-field {
     width: 100%;
+    max-width: 100%;
     height: var(--boxheight);
     box-sizing: border-box;
 
@@ -177,7 +178,8 @@ textarea::placeholder {
 
 .label-style {
     margin: auto 0;
-    width: calc(100% - 6em - 1ch);
+    width: calc(100% - 7em - 20px);
+    border: 1px solid red;
 }
 
 .trash-button {
@@ -274,7 +276,7 @@ textarea::placeholder {
 
     :root {
         --fs: 16px;
-        --boxheight: 50px;
+        --boxheight:  50px;
     }
 
     main {
