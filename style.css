@@ -276,7 +276,6 @@ textarea::placeholder {
 
     :root {
         --fs: 16px;
-        --boxheight:  50px;
     }
 
     main {
